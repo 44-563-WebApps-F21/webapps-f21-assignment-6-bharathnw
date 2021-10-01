@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <title>Sreebharath Lab 06</title>
+
+</head>
+
+<body>
+
+    <h2>Pass phrase by Sreebharath Mallampati</h2>
+
+    <form>
+        <div class="form-group">
+            <label class="control-label" for="password">Enter the secret phrase</label>
+            <input class="form-control" type="password" id="password" name="password" min=10 max=50 step=2 value="Let me in">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="phrase">Enter a phrase</label>
+            <input class="form-control" type="text" id="phrase" name="phrase">
+        </div>
+        <br>
+        <button class="btn btn-success" type="button" onclick="processPhrase()">Check the phrase</button>
+    </form>
+    <br>
+    <div>
+        <h3>Your Solution appears here: </h3>
+        <p id="result"></p>
+    </div>
+
+
+    <script>
+        let wrongAttempts = 0;
+        let correctAttempts = 0;
+
+        function processPhrase() {
+            let password = document.getElementById("password").value;
+            let passphrase = document.getElementById("phrase").value;
+            if (password == passphrase) {
+                alert("Access allowed");
+                correctAttempts++
+            } else {
+                alert("Access denied");
+                wrongAttempts++;
+            }
+            document.getElementById("result").innerHTML = "Correct counts = " + (correctAttempts) + " and wrong counts = " + (wrongAttempts);
+        }
+    </script>
+
+</body>
+
+</html>
