@@ -37,6 +37,30 @@
         </div>
     </div>
 
+    <div class="container">
+        <h3>Calculations</h3>
+        <hr/>
+        <form id="formView">
+            <!-- <div class="form-group">
+                <input type="radio" id="chk_add" name="color" value="plus">
+                <label for="chk_add">+</label>
+            </div>
+            <div class="form-group">
+                <input type="radio" id="chk_sub" name="color" value="minus">
+                <label for="chk_sub">-</label>
+            </div>
+            <div class="form-group">
+                <input type="radio" id="chk_mul" name="color" value="times">
+                <label for="chk_mul">*</label>
+            </div>
+            <div class="form-group">
+                <input type="radio" id="chk_div" name="color" value="divide">
+                <label for="chk_div">/</label>
+            </div> -->
+        </form>
+
+    </div>
+
 
 
 
@@ -52,6 +76,72 @@
             }
             document.getElementById('dynResult').innerHTML = " " + finalarray.join(", ") + " (Exponent was " + (exponent) + ")"
         }
+
+        function processRadio(element) {
+            let base = document.getElementById('base').value;
+            let exponent = document.getElementById('exponent').value;
+            let value = element.id;
+            let result = 0;
+            switch (element.id) {
+                case 'chk_add':
+                    {
+                        result = parseInt(base) + parseInt(exponent);
+                        break;
+                    }
+                case 'chk_sub':
+                    {
+                        result = parseInt(base) - parseInt(exponent);
+                        break;
+                    }
+                case 'chk_mul':
+                    {
+                        result = parseInt(base) * parseInt(exponent);
+                        break;
+                    }
+                case 'chk_divide':
+                    {
+                        result = parseInt(base) / parseInt(exponent);
+                        break;
+                    }
+            }
+
+            document.getElementById('dynLabel').innerHTML = base + " " + element.value + " " + exponent + " : ";
+            let finalarray = [];
+            for (i = 1; i <= exponent; i++) {
+                finalarray.push(base ** i);
+            }
+            document.getElementById('dynResult').innerHTML = (result);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let operationsArray = [{
+                id: 'chk_add',
+                value: 'plus',
+                symbol: '+'
+            }, {
+                id: 'chk_sub',
+                value: 'minus',
+                symbol: '-'
+            }, {
+                id: 'chk_mul',
+                value: 'times',
+                symbol: '*'
+            }, {
+                id: 'chk_div',
+                value: 'divide',
+                symbol: '/'
+            }]
+            let resultView = "";
+            operationsArray.forEach(element => {
+                resultView += `<div class=\"form-group\">
+                    <input type=\"radio\" onclick=\"processRadio(" + element.id + ")\" class=\"form-check-input\" 
+                     id=\"" + element.id + "\" name=\"color\" value=\"" + element.value + "\">
+                    <label for=\"" + element.id + "\">" + "&nbsp;" + element.symbol + "</label>
+                    </div>`
+            });
+            document.getElementById('formView').innerHTML = resultView;
+
+        });
     </script>
 
 </body>
