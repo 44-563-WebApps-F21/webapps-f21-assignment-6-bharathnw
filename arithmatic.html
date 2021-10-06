@@ -107,18 +107,18 @@
     <script>
         let my_car = {};
 
-        function updateCar() {
-            let property = document.getElementById('property').value;
-            let propertyValue = document.getElementById('propertyValue').value;
-            my_car[property] = propertyValue;
-            document.getElementById('carsResult').innerHTML = JSON.stringify(my_car);
-        }
-
         function orderCar() {
             my_car = {};
             my_car['electric'] = document.getElementById('cb_electric').checked;
             my_car['ac'] = document.getElementById('cb_ac').checked;
             my_car['gps'] = document.getElementById('cb_gps').checked;
+            document.getElementById('carsResult').innerHTML = JSON.stringify(my_car);
+        }
+
+        function updateCar() {
+            let property = document.getElementById('property').value;
+            let propertyValue = document.getElementById('propertyValue').value;
+            my_car[property] = propertyValue;
             document.getElementById('carsResult').innerHTML = JSON.stringify(my_car);
         }
 
