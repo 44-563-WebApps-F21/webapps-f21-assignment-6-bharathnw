@@ -85,11 +85,34 @@
         </div>
     </div>
 
+    <div class="container">
+        <h3>Part 8</h3>
+        <hr/>
+        <form>
+            <div class="from-group">
+                <label class="control-label" for="property">Enter a property:</label>
+                <input class="form-control" type="text" name="property" id="property" value="color" placeholder="Please enter property" />
+            </div>
+            <div class="from-group">
+                <label class="control-label" for="propertyValue">Enter a value:</label>
+                <input class="form-control" type="text" name="propertyValue" id="propertyValue" placeholder="Please enter value" />
+            </div>
+            <br/>
+            <button type="button" class="btn btn-success" onclick="updateCar()">Update the car</button>
+        </form>
+    </div>
 
 
 
     <script>
-        my_car = {};
+        let my_car = {};
+
+        function updateCar() {
+            let property = document.getElementById('property').value;
+            let propertyValue = document.getElementById('propertyValue').value;
+            my_car[property] = propertyValue;
+            document.getElementById('carsResult').innerHTML = JSON.stringify(my_car);
+        }
 
         function orderCar() {
             my_car = {};
