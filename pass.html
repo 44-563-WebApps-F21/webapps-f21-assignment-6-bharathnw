@@ -46,7 +46,6 @@
     <script>
         let wrongAttempts = 0;
         let correctAttempts = 0;
-        let usingImage = 1;
 
         function processPhrase() {
             let password = document.getElementById("password").value;
@@ -60,9 +59,9 @@
             }
             document.getElementById("result").innerHTML = "Correct counts = " + (correctAttempts) + " and wrong counts = " + (wrongAttempts);
         }
+        let usingImage = 1;
 
         function newImage() {
-            console.log('trigerred');
             switch (usingImage) {
                 case 1:
                     {
