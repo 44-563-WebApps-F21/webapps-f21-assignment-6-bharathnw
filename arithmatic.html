@@ -61,67 +61,8 @@
 
     </div>
 
-    <div class="container">
-        <h3>Let us order a car</h3>
-        <hr/>
-        <form>
-            <div class="form-group">
-                <input type="checkbox" class="form-check-input" id="cb_electric" name="electric">
-                <label for="cb_electric">electric</label>
-            </div>
-            <div class="form-group">
-                <input type="checkbox" class="form-check-input" id="cb_ac" name="ac">
-                <label for="cb_ac">ac</label>
-            </div>
-            <div class="form-group">
-                <input type="checkbox" class="form-check-input" id="cb_gps" name="gps">
-                <label for="cb_gps">gps</label>
-            </div>
-            <br/>
-            <button type="button" class="btn btn-success" onclick="orderCar()">Order a car</button>
-        </form>
-        <div id="carsResult">
-
-        </div>
-    </div>
-
-    <div class="container">
-        <h3>Part 8</h3>
-        <hr/>
-        <form>
-            <div class="from-group">
-                <label class="control-label" for="property">Enter a property:</label>
-                <input class="form-control" type="text" name="property" id="property" value="color" placeholder="Please enter property" />
-            </div>
-            <div class="from-group">
-                <label class="control-label" for="propertyValue">Enter a value:</label>
-                <input class="form-control" type="text" name="propertyValue" id="propertyValue" placeholder="Please enter value" />
-            </div>
-            <br/>
-            <button type="button" class="btn btn-success" onclick="updateCar()">Update the car</button>
-        </form>
-    </div>
-
-
 
     <script>
-        let my_car = {};
-
-        function orderCar() {
-            my_car = {};
-            my_car['electric'] = document.getElementById('cb_electric').checked;
-            my_car['ac'] = document.getElementById('cb_ac').checked;
-            my_car['gps'] = document.getElementById('cb_gps').checked;
-            document.getElementById('carsResult').innerHTML = JSON.stringify(my_car);
-        }
-
-        function updateCar() {
-            let property = document.getElementById('property').value;
-            let propertyValue = document.getElementById('propertyValue').value;
-            my_car[property] = propertyValue;
-            document.getElementById('carsResult').innerHTML = JSON.stringify(my_car);
-        }
-
         function powers() {
             let base = document.getElementById('base').value;
             let exponent = document.getElementById('exponent').value;
