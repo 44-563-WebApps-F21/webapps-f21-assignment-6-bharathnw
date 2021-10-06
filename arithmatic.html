@@ -61,10 +61,44 @@
 
     </div>
 
+    <div class="container">
+        <h3>Let us order a car</h3>
+        <hr/>
+        <form>
+            <div class="form-group">
+                <input type="checkbox" class="form-check-input" id="cb_electric" name="electric">
+                <label for="cb_electric">electric</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" class="form-check-input" id="cb_ac" name="ac">
+                <label for="cb_ac">ac</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" class="form-check-input" id="cb_gps" name="gps">
+                <label for="cb_gps">gps</label>
+            </div>
+            <br/>
+            <button type="button" class="btn btn-success" onclick="orderCar()">Order a car</button>
+        </form>
+        <div id="carsResult">
+
+        </div>
+    </div>
+
 
 
 
     <script>
+        my_car = {};
+
+        function orderCar() {
+            my_car = {};
+            my_car['electric'] = document.getElementById('cb_electric').checked;
+            my_car['ac'] = document.getElementById('cb_ac').checked;
+            my_car['gps'] = document.getElementById('cb_gps').checked;
+            document.getElementById('carsResult').innerHTML = JSON.stringify(my_car);
+        }
+
         function powers() {
             let base = document.getElementById('base').value;
             let exponent = document.getElementById('exponent').value;
@@ -98,7 +132,7 @@
                         result = parseInt(base) * parseInt(exponent);
                         break;
                     }
-                case 'chk_divide':
+                case 'chk_div':
                     {
                         result = parseInt(base) / parseInt(exponent);
                         break;
@@ -133,11 +167,7 @@
             }]
             let resultView = "";
             operationsArray.forEach(element => {
-                resultView += `<div class=\"form-group\">
-                    <input type=\"radio\" onclick=\"processRadio(" + element.id + ")\" class=\"form-check-input\" 
-                     id=\"" + element.id + "\" name=\"color\" value=\"" + element.value + "\">
-                    <label for=\"" + element.id + "\">" + "&nbsp;" + element.symbol + "</label>
-                    </div>`
+                resultView += "<div class=\"form-group\"><input type=\"radio\" onclick=\"processRadio(" + element.id + ")\" class=\"form-check-input\" id=\"" + element.id + "\" name=\"color\" value=\"" + element.value + "\"><label for=\"" + element.id + "\">" + "&nbsp;" + element.symbol + "</label></div>"
             });
             document.getElementById('formView').innerHTML = resultView;
 
