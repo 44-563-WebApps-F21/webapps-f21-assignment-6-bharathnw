@@ -11,31 +11,42 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="col-sm-12">
+            <h2>Pass phrase by Sreebharath Mallampati</h2>
 
-    <h2>Pass phrase by Sreebharath Mallampati</h2>
+            <form>
+                <div class="form-group">
+                    <label class="control-label" for="password">Enter the secret phrase</label>
+                    <input class="form-control" type="password" id="password" name="password" min=10 max=50 step=2 value="Let me in">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="phrase">Enter a phrase</label>
+                    <input class="form-control" type="text" id="phrase" name="phrase">
+                </div>
+                <br>
+                <button class="btn btn-success" type="button" onclick="processPhrase()">Check the phrase</button>
+            </form>
+            <br>
+            <div>
+                <h3>Your Solution appears here: </h3>
+                <p id="result"></p>
+            </div>
+        </div>
 
-    <form>
-        <div class="form-group">
-            <label class="control-label" for="password">Enter the secret phrase</label>
-            <input class="form-control" type="password" id="password" name="password" min=10 max=50 step=2 value="Let me in">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="phrase">Enter a phrase</label>
-            <input class="form-control" type="text" id="phrase" name="phrase">
-        </div>
-        <br>
-        <button class="btn btn-success" type="button" onclick="processPhrase()">Check the phrase</button>
-    </form>
-    <br>
-    <div>
-        <h3>Your Solution appears here: </h3>
-        <p id="result"></p>
+        <section>
+            <div class="container">
+                <img src="assets/tiger.jpg" alt="Tiger Image" onclick="newImage()" id="newImg" height="200px" width="200px">
+            </div>
+        </section>
     </div>
+
 
 
     <script>
         let wrongAttempts = 0;
         let correctAttempts = 0;
+        let usingImage = 1;
 
         function processPhrase() {
             let password = document.getElementById("password").value;
@@ -48,6 +59,33 @@
                 wrongAttempts++;
             }
             document.getElementById("result").innerHTML = "Correct counts = " + (correctAttempts) + " and wrong counts = " + (wrongAttempts);
+        }
+
+        function newImage() {
+            console.log('trigerred');
+            switch (usingImage) {
+                case 1:
+                    {
+                        document.getElementById('newImg').src = "assets/lion.jpg";
+                        break;
+                    }
+                case 2:
+                    {
+                        document.getElementById('newImg').src = "assets/ibis.jpg";
+                        break;
+                    }
+                case 3:
+                    {
+                        document.getElementById('newImg').src = "assets/monkey.jpg";
+                        break;
+                    }
+                case 4:
+                    {
+                        document.getElementById('newImg').src = "assets/parrot.jpg";
+                        break;
+                    }
+            }
+            usingImage++;
         }
     </script>
 
