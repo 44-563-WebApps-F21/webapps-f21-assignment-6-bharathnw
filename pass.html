@@ -48,6 +48,10 @@
         let correctAttempts = 0;
 
         function processPhrase() {
+            if (wrongAttempts > 2) {
+                alert("Account locked");
+                return;
+            }
             let password = document.getElementById("password").value;
             let passphrase = document.getElementById("phrase").value;
             if (password == passphrase) {
